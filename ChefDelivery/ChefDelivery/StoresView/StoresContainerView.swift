@@ -25,6 +25,7 @@ struct StoresContainerView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            
             HStack {
                 Text(title)
                     .font(.headline)
