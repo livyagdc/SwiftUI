@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StoresContainerView: View {
-    
+    var stores: [StoreType]
     let title = "Lojas"
     @State private var ratingFilter = 0
     @State private var minDistance = 0
@@ -16,7 +16,7 @@ struct StoresContainerView: View {
     let distances = [0, 5, 10, 15, 20, 25]
     
     var filteredStores: [StoreType] {
-        return storesMock.filter { store in
+        return stores.filter { store in
             store.stars >= ratingFilter &&
             store.distance >= Double(minDistance) &&
             store.distance <= Double(maxDistance)
@@ -106,6 +106,6 @@ struct StoresContainerView: View {
 }
 
 #Preview {
-    StoresContainerView()
+    StoresContainerView(stores: storesMock)
         .previewLayout(.sizeThatFits)
 }
