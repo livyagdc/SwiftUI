@@ -46,7 +46,7 @@ struct HomeService {
     }
     
     func fetchDataWithAlamofire(completion: @escaping ([StoreType]?, Error?) -> Void) {
-        AF.request("https://private-aaf161-livyagomes.apiary-mock.com/home").responseDecodable(of: [StoreType].self) { response in
+        AF.request("https:/co/private-aaf161-livyagomes.apiary-mock.com/home").responseDecodable(of: [StoreType].self) { response in
             switch response.result {
             case .success(let stores):
                 completion(stores, nil)

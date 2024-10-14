@@ -12,21 +12,29 @@ struct ProductDetailView: View {
     var service = HomeService()
     let product: ProductType
     @State private var productQuantity = 1
+    @State  var showAlert: Bool
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        
-        ProductDetailHeaderView(product: product)
-        
-        Spacer()
-        
-        ProductDetailQuantityView(productQuantity: $productQuantity)
-        
-        Spacer()
-        
-        ProductDetailButtonView{
-            Task {
-                await confirmOrder()
+        VStack {
+            ProductDetailHeaderView(product: product)
+            
+            Spacer()
+            
+            ProductDetailQuantityView(productQuantity: $productQuantity)
+            
+            Spacer()
+            
+            ProductDetailButtonView{
+                Task {
+                    await confirmOrder()
+                }
             }
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Chef Delivery"), message: Text("Pedido enviado com sucesso"), dismissButton: .default(Text("Ok"), action: {
+                presentationMode.wrappedValue.dismiss()
+            }))
         }
     }
     
@@ -36,8 +44,10 @@ struct ProductDetailView: View {
             switch result {
             case .success(let message):
                 print(message)
+                showAlert = true
             case .failure(let error):
                 print(error.localizedDescription)
+                showAlert = false
             }
         } catch {
             print(error.localizedDescription)
@@ -73,5 +83,5 @@ struct ProductDetailButtonView: View {
 
 
 #Preview {
-    ProductDetailView(product: storesMock[0].products[0])
+    ProductDetailView(product: storesMock[0].products[0], showAlert: false)
 }

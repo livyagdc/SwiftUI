@@ -28,7 +28,7 @@ struct StoreDetailProductsView: View {
                    StoreDetailProductItemView(product: product)
                 }
                 .sheet(item: $selectedProduct) {product in
-                    ProductDetailView(product: product)
+                    ProductDetailView(product: product, showAlert: false)
                 }
             }
         }
