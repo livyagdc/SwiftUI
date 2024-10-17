@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct SpecialistCardView: View {
-
+    
     var specialist: Specialist
+    var appointment: Appointment?
     
     let service = WebService()
+    
     @State private var specialistImage: UIImage?
     
     func downloadImage() async {
@@ -41,20 +43,40 @@ struct SpecialistCardView: View {
                         .font(.title3)
                         .bold()
                     Text(specialist.specialty)
+                    if let appointment {
+                        Text(appointment.date.convertDateStringToReadableDate())
+                            .bold()
+                    }
                 }
             }
             
-            NavigationLink{
-                ScheduleAppointmentView()
-            } label: {
-                ButtonView(text: "Agendar consulta")
+            if let appointment {
+                HStack {
+                    NavigationLink {
+                        ScheduleAppointmentView(specialistID: appointment.specialist.id, isRescheduleView: true, appointmentID: appointment.id)
+                    } label: {
+                        ButtonView(text: "Remarcar")
+                    }
+                    
+                    NavigationLink {
+                        CancelAppointmentView(appointmentID: appointment.id)
+                    } label: {
+                        ButtonView(text: "Cancelar", buttonType: .cancel)
+                    }
+                }
+            } else {
+                NavigationLink {
+                    ScheduleAppointmentView(specialistID: specialist.id)
+                } label: {
+                    ButtonView(text: "Agendar consulta")
+                }
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
         .background(Color(.lightBlue).opacity(0.15))
         .cornerRadius(16.0)
-        .onAppear{
+        .onAppear {
             Task {
                 await downloadImage()
             }
