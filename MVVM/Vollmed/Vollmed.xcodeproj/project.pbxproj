@@ -35,6 +35,7 @@
 		C3EAA5492CC2C4630042EB87 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAA5482CC2C4630042EB87 /* RequestMethod.swift */; };
 		C3EAA54B2CC2C9A80042EB87 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAA54A2CC2C9A80042EB87 /* RequestError.swift */; };
 		C3EAA54D2CC2CD3C0042EB87 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAA54C2CC2CD3C0042EB87 /* HTTPClient.swift */; };
+		C3EAA54F2CC2E0D00042EB87 /* HomeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAA54E2CC2E0D00042EB87 /* HomeEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		C3EAA5482CC2C4630042EB87 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		C3EAA54A2CC2C9A80042EB87 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		C3EAA54C2CC2CD3C0042EB87 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		C3EAA54E2CC2E0D00042EB87 /* HomeEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 		C3EAA5442CC2BE680042EB87 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
+				C3EAA54E2CC2E0D00042EB87 /* HomeEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				488A6A2E2AB93514003A2CAD /* AuthenticationManager.swift in Sources */,
 				C3EAA54B2CC2C9A80042EB87 /* RequestError.swift in Sources */,
 				484BEEFD2AB0F5750033C07A /* Specialist.swift in Sources */,
+				C3EAA54F2CC2E0D00042EB87 /* HomeEndpoint.swift in Sources */,
 				488A6A272AB93065003A2CAD /* UserDefaultsHelper.swift in Sources */,
 				484BEF012AB0F6090033C07A /* ButtonView.swift in Sources */,
 				488A6A1F2AB91FF1003A2CAD /* SignInView.swift in Sources */,
